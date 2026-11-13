@@ -1,9 +1,30 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
+  "headers": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://*.jotform.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jotfor.ms https://*.jotform.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jotfor.ms https://*.jotform.com; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com https://*.jotform.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.supabase.co https://*.jotform.com https://*.jotfor.ms; frame-src https://*.jotform.com https://*.jotfor.ms https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self' https: blob:; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        }
+      ]
     }
   ]
 }
